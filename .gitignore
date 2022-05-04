@@ -1,0 +1,8 @@
+
+bin/
+
+.vs/APIGateway_Ocelot/DesignTimeBuild/
+
+.vs/APIGateway_Ocelot/v17/
+
+obj/
