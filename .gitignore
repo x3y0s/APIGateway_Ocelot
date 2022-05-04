@@ -1,8 +1,20 @@
+################################################################################
+# Il file gitignore è stato creato automaticamente da Microsoft(R) Visual Studio.
+################################################################################
 
-bin/
+/bin
+/obj
+
+*.user
+
+Customer.Microservice/bin/
+
+Customer.Microservice/obj/
+
+Gateway.WebApi/bin/
+
+Gateway.WebApi/obj/
 
 .vs/APIGateway_Ocelot/DesignTimeBuild/
 
 .vs/APIGateway_Ocelot/v17/
-
-obj/
