@@ -3,13 +3,28 @@ version: '3.4'
 services:
   customer.microservice:
     image: ${DOCKER_REGISTRY-}customermicroservice
+    container_name: Customer
     build:
       context: .
       dockerfile: Customer.Microservice/Dockerfile
 
   gateway.webapi:
     image: ${DOCKER_REGISTRY-}gatewaywebapi
+    container_name: Gateway
     build:
       context: .
       dockerfile: Gateway.WebApi/Dockerfile
 
+  rabbitmq: # login guest:guest
+    image: ${DOCKER_REGISTRY-}rabbitmq:3-management
+    container_name: "rabbitmq"
+    hostname: "rabbitmq"
+    labels:
+      NAME: "rabbitmq"
+    ports:
+    - "4369:4369"
+    - "5671:5671"
+    - "5672:5672"
+    - "25672:25672"
+    - "15671:15671"
+    - "15672:15672"
