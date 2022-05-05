@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Customer.Microservice.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +37,13 @@ namespace Customer.Microservice
                     Title = "Customer Microservice API",
                 });
             });
+            services.AddTransient(provider =>
+            {
+                var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
+                const string categoryName = "Any";
+                return loggerFactory.CreateLogger(categoryName);
+            });
+            services.AddSingleton<IBroker, Broker>();
             services.AddControllers();
         }
 
